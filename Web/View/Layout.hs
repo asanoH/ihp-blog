@@ -60,3 +60,14 @@ metaTags = [hsx|
     <meta property="og:description" content="TODO"/>
     {autoRefreshMeta}
 |]
+
+appLayout :: Layout 
+appLayout inner = H.docTypeHtml ! A.lang "en" $ [hsx|
+<head>
+    <title>My App</title>
+</head>
+<body>
+    <h1>Welcome to my app</h1>
+    {inner}
+</body>
+|]

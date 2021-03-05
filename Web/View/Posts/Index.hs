@@ -1,7 +1,15 @@
 module Web.View.Posts.Index where
 import Web.View.Prelude
+import Data.Aeson
 
 data IndexView = IndexView { posts :: [Post] }
+
+instance ToJSON Post where
+    toJSON post = object
+			[ "id" .= get #id post
+			, "title" .= get #title post
+			, "body" .= get #body post
+			]
 
 instance View IndexView where
     html IndexView { .. } = [hsx|
@@ -26,6 +34,7 @@ instance View IndexView where
         </div>
     |]
 
+    json IndexView { .. } = toJSON posts
 
 renderPost post = [hsx|
     <tr>
