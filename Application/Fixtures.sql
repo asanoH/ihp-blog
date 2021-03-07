@@ -22,6 +22,10 @@ INSERT INTO public.posts (id, title, body, created_at) VALUES ('68e9497d-305c-44
 INSERT INTO public.posts (id, title, body, created_at) VALUES ('334888ce-04e6-4301-8f82-ccd6132779c7', 'aa', '//a', '2021-03-01 17:50:23.676359+09');
 INSERT INTO public.posts (id, title, body, created_at) VALUES ('54c3d692-43ad-4b48-9887-c295d06c8608', 'ss', '# a
 ## a', '2021-03-01 17:50:59.71271+09');
+INSERT INTO public.posts (id, title, body, created_at) VALUES ('fd295619-3b73-4088-b5e4-81092d5e9296', 'kk', 'k', '2021-03-02 18:35:19.730662+09');
+INSERT INTO public.posts (id, title, body, created_at) VALUES ('fe973f87-5354-4a1b-a294-a11cd88ee385', 'aa', 'ss', '2021-03-02 18:49:51.207134+09');
+INSERT INTO public.posts (id, title, body, created_at) VALUES ('8d37183c-2442-4ebc-9681-2bd1f5c1aafb', 'qq', 'aa', '2021-03-05 17:15:35.763724+09');
+INSERT INTO public.posts (id, title, body, created_at) VALUES ('b61d6d59-fb91-433b-92ea-22b4ef513b56', 'aa', 'aa', '2021-03-05 17:23:28.470072+09');
 
 
 ALTER TABLE public.posts ENABLE TRIGGER ALL;
@@ -37,6 +41,9 @@ INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('da0
 INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('d44ead36-b333-4660-bcb3-abc4e97c81bf', '334888ce-04e6-4301-8f82-ccd6132779c7', 'a', 's', '2021-03-02 14:30:42.874785+09');
 INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('1666bd41-3a45-4fc1-ad2a-56a225899142', '334888ce-04e6-4301-8f82-ccd6132779c7', 'ss', 'dd', '2021-03-02 14:30:42.876336+09');
 INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('b34f62eb-2399-4181-86cd-bb8a850c8357', '334888ce-04e6-4301-8f82-ccd6132779c7', 'ii', 'kk', '2021-03-02 14:30:42.877847+09');
+INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('13e16ce5-e697-476f-ae55-f87bfe6a0b04', '334888ce-04e6-4301-8f82-ccd6132779c7', 'aa', 'ss', '2021-03-02 14:57:04.335863+09');
+INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('8747e4d6-d6d0-447b-a340-d75346a2b65e', 'fd295619-3b73-4088-b5e4-81092d5e9296', 'xx', 'xx', '2021-03-02 18:35:27.30181+09');
+INSERT INTO public.comments (id, post_id, author, body, created_at) VALUES ('94ddadea-a5b8-4d74-a6de-49c0ca821bf8', 'b61d6d59-fb91-433b-92ea-22b4ef513b56', 'dd', 'dd', '2021-03-06 15:35:26.798431+09');
 
 
 ALTER TABLE public.comments ENABLE TRIGGER ALL;

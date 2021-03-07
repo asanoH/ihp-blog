@@ -6,10 +6,10 @@ data IndexView = IndexView { posts :: [Post] }
 
 instance ToJSON Post where
     toJSON post = object
-			[ "id" .= get #id post
-			, "title" .= get #title post
-			, "body" .= get #body post
-			]
+            [ "id" .= get #id post
+            , "title" .= get #title post
+            , "body" .= get #body post
+            ]
 
 instance View IndexView where
     html IndexView { .. } = [hsx|
@@ -18,6 +18,8 @@ instance View IndexView where
                 <li class="breadcrumb-item active"><a href={PostsAction}>Posts</a></li>
             </ol>
         </nav>
+        <p><a href={NewSessionAction}>Login</a></p>
+        <p><a class="js-delete js-delete-no-confirm" href={DeleteSessionAction}>Logout</a></p>
         <h1>Index <a href={pathTo NewPostAction} class="btn btn-primary ml-4">+ New</a></h1>
         <div class="table-responsive">
             <table class="table">

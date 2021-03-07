@@ -11,15 +11,18 @@ import Network.Wai (getRequestBodyChunk)
 
 instance Controller PostsController where
     beforeAction = putStrLn "A"
+    --beforeAction = ensureIsUser
+    --beforeAction = basicAuth "sanja" "hunter2" "myapp"
 
     action PostsAction = do
+        ensureIsUser
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch
         render IndexView { .. }
-        posts <- query @Post |> fetch
-        renderJson (toJSON posts)
-        putStrLn ("posts is:" <> (tshow posts))
+        -- posts <- query @Post |> fetch
+        -- renderJson (toJSON posts)
+        -- putStrLn ("posts is:" <> (tshow posts))
 
     action NewPostAction = do
         let post = newRecord
@@ -29,6 +32,7 @@ instance Controller PostsController where
         post <- fetch postId
             >>= pure . modify #comments (orderByDesc #createdAt)
             >>= fetchRelated #comments
+        accessDeniedUnless (currentUserId == currentUserId)
         render ShowView { .. }
 
     action EditPostAction { postId } = do
@@ -68,6 +72,8 @@ instance Controller PostsController where
         requestBody <- request |> getRequestBodyChunk
         putStrLn ("Current request url: " <> tshow getRequestPath)
         putStrLn ("Request is:" <> tshow requestBody)
+        let text = "Hello " <> (get #email currentUser)
+        putStrLn text        
         render ExampleView { .. }
 
 buildPost post = post
