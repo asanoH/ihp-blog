@@ -1,0 +1,71 @@
+start PostControllerAction
+Query (9.837991ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+fetch result is [Post {id = 4f2f2418-7957-4b19-8816-6d10adf89067, title = "q", body = "q", createdAt = 2021-03-06 09:59:49.898341 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = b61d6d59-fb91-433b-92ea-22b4ef513b56, title = "aa", body = "aa", createdAt = 2021-03-05 08:23:28.470072 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'b61d6d59-fb91-433b-92ea-22b4ef513b56'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 8d37183c-2442-4ebc-9681-2bd1f5c1aafb, title = "qq", body = "aa", createdAt = 2021-03-05 08:15:35.763724 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'8d37183c-2442-4ebc-9681-2bd1f5c1aafb'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fe973f87-5354-4a1b-a294-a11cd88ee385, title = "aa", body = "ss", createdAt = 2021-03-02 09:49:51.207134 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fe973f87-5354-4a1b-a294-a11cd88ee385'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fd295619-3b73-4088-b5e4-81092d5e9296, title = "kk", body = "k", createdAt = 2021-03-02 09:35:19.730662 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fd295619-3b73-4088-b5e4-81092d5e9296'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 54c3d692-43ad-4b48-9887-c295d06c8608, title = "ss", body = "# a\r\n## a", createdAt = 2021-03-01 08:50:59.71271 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'54c3d692-43ad-4b48-9887-c295d06c8608'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 334888ce-04e6-4301-8f82-ccd6132779c7, title = "aa", body = "//a", createdAt = 2021-03-01 08:50:23.676359 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'334888ce-04e6-4301-8f82-ccd6132779c7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 68e9497d-305c-4492-b729-fa9b39ab21f7, title = "test", body = "test", createdAt = 2021-03-01 06:31:03.058979 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'68e9497d-305c-4492-b729-fa9b39ab21f7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 5f1617e7-9116-49cd-8a80-058a787a2411, title = "TEST", body = "test code", createdAt = 2021-03-01 06:20:09.108767 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'5f1617e7-9116-49cd-8a80-058a787a2411'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = a11342a5-7a13-4ce2-8ddd-c5742bd712a2, title = "Hello World!", body = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", createdAt = 2021-03-01 06:20:09.104226 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'a11342a5-7a13-4ce2-8ddd-c5742bd712a2'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}}]
+warning PostControllerAction
+[36mGET[0m /Posts
+[37m  Accept: [0mtext/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+[37m  Status: [0m[32m200 OK[0m 0.011485535s
+
+Query (5.091203ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (1.032642ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.006666554s
+
+Query (3.722721ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (0.595742ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.004710195s
+
+Query (3.837328ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (1.221349ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0m*/*
+[37m  Status: [0m[32m200 OK[0m 0.006174658s
+
+Query (4.589985ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (1.005056ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0m*/*
+[37m  Status: [0m[32m200 OK[0m 0.006209343s
+
+Query (4.788157ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (1.70598ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0m*/*
+[37m  Status: [0m[32m200 OK[0m 0.007034558s
+
+start PostControllerAction
+warning PostControllerAction
+Query (6.622151ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+[36mGET[0m /Posts
+[37m  Accept: [0m*/*
+[37m  Status: [0m[32m200 OK[0m 0.007255418s
+
+start PostControllerAction
+warning PostControllerAction
+Query (4.073694ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+[36mGET[0m /Posts
+[37m  Accept: [0mtext/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+[37m  Status: [0m[32m200 OK[0m 0.004464675s
+
+start PostControllerAction
+warning PostControllerAction
+Query (7.012755ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+[36mGET[0m /Posts
+[37m  Accept: [0m*/*
+[37m  Status: [0m[32m200 OK[0m 0.007431515s
+
+start PostControllerAction
+warning PostControllerAction
+Query (3.834511ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+[36mGET[0m /Posts
+[37m  Accept: [0mtext/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+[37m  Status: [0m[32m200 OK[0m 0.004156226s
+

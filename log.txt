@@ -1,0 +1,149 @@
+λ
+IHP
+APP SCHEMA DATA REPL CODEGEN LOGS LINT DEPLOY DOCU©
+digitally induced GmbH
+ [ ]Code Editor
+Application/Schema.sql
+Update DBToggle Dropdown
+Save DB to FixturesPush to DB
+
+Objects
+
+ 
+posts
+Rename TableDelete Table
+Show Generated Haskell Code Open Controller
+Add Column to Table
+Add TableAdd Enum
+ 
+comments
+Rename TableDelete Table
+Show Generated Haskell Code Open Controller
+Add Column to Table
+Add TableAdd Enum
+Right click to open context menu
+Add TableAdd Enum
+[("ihpVersion","0.9.0"),("os","linux"),("arch","x86_64"),("projectId","de5482a948cbe210af982d7d74fd70020db6bcf06e5ca8f1022fe8c376128a5ec7096ba90690991bd2f0938cbf4c3dfb2ecf05e9bcf741ffa1d69c285237df9e")]
+GHCi, version 8.10.3: https://www.haskell.org/ghc/  :? for help
+package flags have changed, resetting and loading new packages...
+Loaded GHCi configuration from .ghci
+[38;5;208mIHP>[m package flags have changed, resetting and loading new packages...
+[38;5;208mIHP>[m [ 1 of 23] Compiling Application.Helper.Controller ( Application/Helper/Controller.hs, interpreted )
+[ 2 of 23] Compiling Application.Helper.View ( Application/Helper/View.hs, interpreted )
+[ 3 of 23] Compiling Config           ( Config/Config.hs, interpreted )
+[ 4 of 23] Compiling Generated.Types  ( build/Generated/Types.hs, interpreted )
+IHP Telemetry is activated. This can be disabled by setting env variable IHP_TELEMETRY_DISABLED=1
+
+build/Generated/Types.hs:3:1: warning: [-Wunrecognised-pragmas]
+    Unrecognised pragma
+  |
+3 | {-# GHC_OPTIONS -Wno-unused-imports, -Wno-dodgy-imports, -Wno-unused-matches #-}module Generated.Types where
+  | ^^^
+[ 5 of 23] Compiling Web.Types        ( Web/Types.hs, interpreted )
+[ 6 of 23] Compiling Web.Routes       ( Web/Routes.hs, interpreted )
+[ 7 of 23] Compiling Web.Controller.Prelude ( Web/Controller/Prelude.hs, interpreted )
+[ 8 of 23] Compiling Web.View.Layout  ( Web/View/Layout.hs, interpreted )
+[ 9 of 23] Compiling Web.View.Prelude ( Web/View/Prelude.hs, interpreted )
+[10 of 23] Compiling Web.View.Posts.Show ( Web/View/Posts/Show.hs, interpreted )
+[11 of 23] Compiling Web.View.Posts.New ( Web/View/Posts/New.hs, interpreted )
+[12 of 23] Compiling Web.View.Posts.Index ( Web/View/Posts/Index.hs, interpreted )
+[13 of 23] Compiling Web.View.Posts.Edit ( Web/View/Posts/Edit.hs, interpreted )
+[14 of 23] Compiling Web.Controller.Posts ( Web/Controller/Posts.hs, interpreted )
+
+Web/Controller/Posts.hs:29:9: warning: [-Wtabs]
+    Tab character found here.
+    Please use spaces instead.
+   |
+29 |                         >>= fetchRelated #comments
+   |         ^^^^^^^^
+[15 of 23] Compiling Web.View.Comments.Show ( Web/View/Comments/Show.hs, interpreted )
+[16 of 23] Compiling Web.View.Comments.New ( Web/View/Comments/New.hs, interpreted )
+[17 of 23] Compiling Web.View.Comments.Index ( Web/View/Comments/Index.hs, interpreted )
+[18 of 23] Compiling Web.View.Comments.Edit ( Web/View/Comments/Edit.hs, interpreted )
+[19 of 23] Compiling Web.Controller.Comments ( Web/Controller/Comments.hs, interpreted )
+[20 of 23] Compiling Web.View.Static.Welcome ( Web/View/Static/Welcome.hs, interpreted )
+[21 of 23] Compiling Web.Controller.Static ( Web/Controller/Static.hs, interpreted )
+[22 of 23] Compiling Web.FrontController ( Web/FrontController.hs, interpreted )
+[23 of 23] Compiling Main             ( Main.hs, interpreted )
+Ok, 23 modules loaded.
+Server started
+Query (4.893747ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (0.805049ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+[37m  Status: [0m[32m200 OK[0m 0.006464226s
+
+Query (3.70432ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (0.589558ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+[37m  Status: [0m[32m200 OK[0m 0.004655785s
+
+start PostControllerAction
+warning PostControllerAction
+Query (3.914766ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+fetch result[Post {id = 4f2f2418-7957-4b19-8816-6d10adf89067, title = "q", body = "q", createdAt = 2021-03-06 09:59:49.898341 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = b61d6d59-fb91-433b-92ea-22b4ef513b56, title = "aa", body = "aa", createdAt = 2021-03-05 08:23:28.470072 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'b61d6d59-fb91-433b-92ea-22b4ef513b56'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 8d37183c-2442-4ebc-9681-2bd1f5c1aafb, title = "qq", body = "aa", createdAt = 2021-03-05 08:15:35.763724 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'8d37183c-2442-4ebc-9681-2bd1f5c1aafb'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fe973f87-5354-4a1b-a294-a11cd88ee385, title = "aa", body = "ss", createdAt = 2021-03-02 09:49:51.207134 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fe973f87-5354-4a1b-a294-a11cd88ee385'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fd295619-3b73-4088-b5e4-81092d5e9296, title = "kk", body = "k", createdAt = 2021-03-02 09:35:19.730662 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fd295619-3b73-4088-b5e4-81092d5e9296'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 54c3d692-43ad-4b48-9887-c295d06c8608, title = "ss", body = "# a\r\n## a", createdAt = 2021-03-01 08:50:59.71271 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'54c3d692-43ad-4b48-9887-c295d06c8608'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 334888ce-04e6-4301-8f82-ccd6132779c7, title = "aa", body = "//a", createdAt = 2021-03-01 08:50:23.676359 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'334888ce-04e6-4301-8f82-ccd6132779c7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 68e9497d-305c-4492-b729-fa9b39ab21f7, title = "test", body = "test", createdAt = 2021-03-01 06:31:03.058979 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'68e9497d-305c-4492-b729-fa9b39ab21f7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 5f1617e7-9116-49cd-8a80-058a787a2411, title = "TEST", body = "test code", createdAt = 2021-03-01 06:20:09.108767 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'5f1617e7-9116-49cd-8a80-058a787a2411'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = a11342a5-7a13-4ce2-8ddd-c5742bd712a2, title = "Hello World!", body = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", createdAt = 2021-03-01 06:20:09.104226 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'a11342a5-7a13-4ce2-8ddd-c5742bd712a2'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}}]
+[36mGET[0m /Posts
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.005138404s
+
+Query (0.760433ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (0.440217ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.001592808s
+
+Query (4.450426ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+Query (0.527716ms): "SELECT posts.* FROM posts WHERE id = ? LIMIT 1" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /NewComment
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.000797459s
+
+Query (0.715997ms): "SELECT comments.* FROM comments WHERE post_id = ? ORDER BY created_at DESC" [Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'"]
+[36mGET[0m /ShowPost
+[37m  Params: [0m[("postId","4f2f2418-7957-4b19-8816-6d10adf89067")]
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.005671876s
+
+start PostControllerAction
+warning PostControllerAction
+Query (4.079637ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+fetch result[Post {id = 4f2f2418-7957-4b19-8816-6d10adf89067, title = "q", body = "q", createdAt = 2021-03-06 09:59:49.898341 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = b61d6d59-fb91-433b-92ea-22b4ef513b56, title = "aa", body = "aa", createdAt = 2021-03-05 08:23:28.470072 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'b61d6d59-fb91-433b-92ea-22b4ef513b56'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 8d37183c-2442-4ebc-9681-2bd1f5c1aafb, title = "qq", body = "aa", createdAt = 2021-03-05 08:15:35.763724 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'8d37183c-2442-4ebc-9681-2bd1f5c1aafb'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fe973f87-5354-4a1b-a294-a11cd88ee385, title = "aa", body = "ss", createdAt = 2021-03-02 09:49:51.207134 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fe973f87-5354-4a1b-a294-a11cd88ee385'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fd295619-3b73-4088-b5e4-81092d5e9296, title = "kk", body = "k", createdAt = 2021-03-02 09:35:19.730662 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fd295619-3b73-4088-b5e4-81092d5e9296'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 54c3d692-43ad-4b48-9887-c295d06c8608, title = "ss", body = "# a\r\n## a", createdAt = 2021-03-01 08:50:59.71271 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'54c3d692-43ad-4b48-9887-c295d06c8608'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 334888ce-04e6-4301-8f82-ccd6132779c7, title = "aa", body = "//a", createdAt = 2021-03-01 08:50:23.676359 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'334888ce-04e6-4301-8f82-ccd6132779c7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 68e9497d-305c-4492-b729-fa9b39ab21f7, title = "test", body = "test", createdAt = 2021-03-01 06:31:03.058979 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'68e9497d-305c-4492-b729-fa9b39ab21f7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 5f1617e7-9116-49cd-8a80-058a787a2411, title = "TEST", body = "test code", createdAt = 2021-03-01 06:20:09.108767 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'5f1617e7-9116-49cd-8a80-058a787a2411'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = a11342a5-7a13-4ce2-8ddd-c5742bd712a2, title = "Hello World!", body = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", createdAt = 2021-03-01 06:20:09.104226 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'a11342a5-7a13-4ce2-8ddd-c5742bd712a2'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}}]
+[36mGET[0m /Posts
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.005349775s
+
+Query (0.485558ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+fetch result[Post {id = 4f2f2418-7957-4b19-8816-6d10adf89067, title = "q", body = "q", createdAt = 2021-03-06 09:59:49.898341 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = b61d6d59-fb91-433b-92ea-22b4ef513b56, title = "aa", body = "aa", createdAt = 2021-03-05 08:23:28.470072 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'b61d6d59-fb91-433b-92ea-22b4ef513b56'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 8d37183c-2442-4ebc-9681-2bd1f5c1aafb, title = "qq", body = "aa", createdAt = 2021-03-05 08:15:35.763724 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'8d37183c-2442-4ebc-9681-2bd1f5c1aafb'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fe973f87-5354-4a1b-a294-a11cd88ee385, title = "aa", body = "ss", createdAt = 2021-03-02 09:49:51.207134 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fe973f87-5354-4a1b-a294-a11cd88ee385'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fd295619-3b73-4088-b5e4-81092d5e9296, title = "kk", body = "k", createdAt = 2021-03-02 09:35:19.730662 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fd295619-3b73-4088-b5e4-81092d5e9296'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 54c3d692-43ad-4b48-9887-c295d06c8608, title = "ss", body = "# a\r\n## a", createdAt = 2021-03-01 08:50:59.71271 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'54c3d692-43ad-4b48-9887-c295d06c8608'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 334888ce-04e6-4301-8f82-ccd6132779c7, title = "aa", body = "//a", createdAt = 2021-03-01 08:50:23.676359 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'334888ce-04e6-4301-8f82-ccd6132779c7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 68e9497d-305c-4492-b729-fa9b39ab21f7, title = "test", body = "test", createdAt = 2021-03-01 06:31:03.058979 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'68e9497d-305c-4492-b729-fa9b39ab21f7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 5f1617e7-9116-49cd-8a80-058a787a2411, title = "TEST", body = "test code", createdAt = 2021-03-01 06:20:09.108767 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'5f1617e7-9116-49cd-8a80-058a787a2411'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = a11342a5-7a13-4ce2-8ddd-c5742bd712a2, title = "Hello World!", body = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", createdAt = 2021-03-01 06:20:09.104226 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'a11342a5-7a13-4ce2-8ddd-c5742bd712a2'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}}]
+[36mGET[0m /Posts
+[37m  Accept: [0mtext/html, application/xhtml+xml
+[37m  Status: [0m[32m200 OK[0m 0.001458295s
+
+start PostControllerAction
+warning PostControllerAction
+[21 of 23] Compiling Web.Controller.Posts ( Web/Controller/Posts.hs, interpreted )
+
+Web/Controller/Posts.hs:29:9: warning: [-Wtabs]
+    Tab character found here.
+    Please use spaces instead.
+   |
+29 |                         >>= fetchRelated #comments
+   |         ^^^^^^^^
+Ok, 23 modules loaded.
+StatusServer: Cannot stop as not running
+Ok, 23 modules loaded.
+Server started
+start PostControllerAction
+warning PostControllerAction
+Query (3.820384ms): "SELECT posts.* FROM posts ORDER BY created_at DESC" []
+fetch result is [Post {id = 4f2f2418-7957-4b19-8816-6d10adf89067, title = "q", body = "q", createdAt = 2021-03-06 09:59:49.898341 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'4f2f2418-7957-4b19-8816-6d10adf89067'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = b61d6d59-fb91-433b-92ea-22b4ef513b56, title = "aa", body = "aa", createdAt = 2021-03-05 08:23:28.470072 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'b61d6d59-fb91-433b-92ea-22b4ef513b56'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 8d37183c-2442-4ebc-9681-2bd1f5c1aafb, title = "qq", body = "aa", createdAt = 2021-03-05 08:15:35.763724 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'8d37183c-2442-4ebc-9681-2bd1f5c1aafb'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fe973f87-5354-4a1b-a294-a11cd88ee385, title = "aa", body = "ss", createdAt = 2021-03-02 09:49:51.207134 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fe973f87-5354-4a1b-a294-a11cd88ee385'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = fd295619-3b73-4088-b5e4-81092d5e9296, title = "kk", body = "k", createdAt = 2021-03-02 09:35:19.730662 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'fd295619-3b73-4088-b5e4-81092d5e9296'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 54c3d692-43ad-4b48-9887-c295d06c8608, title = "ss", body = "# a\r\n## a", createdAt = 2021-03-01 08:50:59.71271 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'54c3d692-43ad-4b48-9887-c295d06c8608'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 334888ce-04e6-4301-8f82-ccd6132779c7, title = "aa", body = "//a", createdAt = 2021-03-01 08:50:23.676359 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'334888ce-04e6-4301-8f82-ccd6132779c7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 68e9497d-305c-4492-b729-fa9b39ab21f7, title = "test", body = "test", createdAt = 2021-03-01 06:31:03.058979 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'68e9497d-305c-4492-b729-fa9b39ab21f7'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = 5f1617e7-9116-49cd-8a80-058a787a2411, title = "TEST", body = "test code", createdAt = 2021-03-01 06:20:09.108767 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'5f1617e7-9116-49cd-8a80-058a787a2411'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}},Post {id = a11342a5-7a13-4ce2-8ddd-c5742bd712a2, title = "Hello World!", body = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam", createdAt = 2021-03-01 06:20:09.104226 UTC, comments = FilterByQueryBuilder {queryBuilder = NewQueryBuilder, queryFilter = ("post_id",EqOp,Plain "'a11342a5-7a13-4ce2-8ddd-c5742bd712a2'")}, meta = MetaBag {annotations = [], touchedFields = [], originalDatabaseRecord = Just <<Post' (QueryBuilder "comments")>>}}]
+[36mGET[0m /Posts
+[37m  Accept: [0m*/*
+[37m  Status: [0m[32m200 OK[0m 0.004982343s
+
+ghc: signal: 15
+StatusServer: Cannot stop as not running
