@@ -6,12 +6,16 @@ import Web.View.Posts.New
 import Web.View.Posts.Edit
 import Web.View.Posts.Show
 import qualified Text.MMark as MMark
+import qualified IHP.Log as Log
 
 instance Controller PostsController where
     action PostsAction = do
+        Log.debug "start PostControllerAction"
+        Log.warn "warning PostControllerAction"
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch
+        --Log.debug $ "fetch result is " <> tshow posts
         render IndexView { .. }
 
     action NewPostAction = do
@@ -21,7 +25,7 @@ instance Controller PostsController where
     action ShowPostAction { postId } = do
         post <- fetch postId
             >>= pure . modify #comments (orderByDesc #createdAt)
-        		>>= fetchRelated #comments
+        	        >>= fetchRelated #comments
         render ShowView { .. }
 
     action EditPostAction { postId } = do
