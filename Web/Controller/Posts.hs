@@ -6,6 +6,7 @@ import Web.View.Posts.New
 import Web.View.Posts.Edit
 import Web.View.Posts.Show
 import qualified Text.MMark as MMark
+import Web.Mail.Posts.Confirmation
 
 instance Controller PostsController where
     action PostsAction = do
@@ -48,6 +49,8 @@ instance Controller PostsController where
                 Right post -> do
                     post <- post |> createRecord
                     setSuccessMessage "Post created"
+                    putStrLn "send mail"
+                    sendMail ConfirmationMail { post }
                     redirectTo PostsAction
 
     action DeletePostAction { postId } = do
