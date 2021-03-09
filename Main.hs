@@ -8,6 +8,7 @@ import IHP.FrameworkConfig
 import IHP.Job.Types
 import Web.FrontController
 import Web.Types
+import Web.Worker
 
 instance FrontController RootApplication where
     controllers = [

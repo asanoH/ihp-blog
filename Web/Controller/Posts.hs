@@ -9,6 +9,8 @@ import qualified Text.MMark as MMark
 
 instance Controller PostsController where
     action PostsAction = do
+        putStrLn "test"
+        newRecord @EmailCustomersJob |> create
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch

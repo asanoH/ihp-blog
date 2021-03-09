@@ -1,0 +1,103 @@
+λ
+IHP
+APP SCHEMA DATA REPL CODEGEN LOGS LINT DEPLOY DOCU©
+digitally induced GmbH
+ [ ]Code Editor
+Application/Schema.sql
+Update DBToggle Dropdown
+Save DB to FixturesPush to DB
+
+Objects
+
+ 
+posts
+Rename TableDelete Table
+Show Generated Haskell Code Open Controller
+Add Column to Table
+Add TableAdd Enum
+ 
+comments
+Rename TableDelete Table
+Show Generated Haskell Code Open Controller
+Add Column to Table
+Add TableAdd Enum
+ 
+email_customers_jobs
+Rename TableDelete Table
+Show Generated Haskell Code Generate Controller
+Add Column to Table
+Add TableAdd Enum
+Right click to open context menu
+Add TableAdd Enum
+[("ihpVersion","0.9.0"),("os","linux"),("arch","x86_64"),("projectId","de5482a948cbe210af982d7d74fd70020db6bcf06e5ca8f1022fe8c376128a5ec7096ba90690991bd2f0938cbf4c3dfb2ecf05e9bcf741ffa1d69c285237df9e")]
+GHCi, version 8.10.3: https://www.haskell.org/ghc/  :? for help
+package flags have changed, resetting and loading new packages...
+Loaded GHCi configuration from .ghci
+[38;5;208mIHP>[m package flags have changed, resetting and loading new packages...
+[38;5;208mIHP>[m [ 1 of 25] Compiling Generated.Types  ( build/Generated/Types.hs, interpreted )
+IHP Telemetry is activated. This can be disabled by setting env variable IHP_TELEMETRY_DISABLED=1
+
+build/Generated/Types.hs:3:1: warning: [-Wunrecognised-pragmas]
+    Unrecognised pragma
+  |
+3 | {-# GHC_OPTIONS -Wno-unused-imports, -Wno-dodgy-imports, -Wno-unused-matches #-}module Generated.Types where
+  | ^^^
+[ 2 of 25] Compiling Application.Helper.Controller ( Application/Helper/Controller.hs, interpreted )
+[ 3 of 25] Compiling Application.Helper.View ( Application/Helper/View.hs, interpreted )
+[ 4 of 25] Compiling Config           ( Config/Config.hs, interpreted )
+[ 5 of 25] Compiling Web.Types        ( Web/Types.hs, interpreted )
+[ 6 of 25] Compiling Web.Routes       ( Web/Routes.hs, interpreted )
+[ 7 of 25] Compiling Web.Controller.Prelude ( Web/Controller/Prelude.hs, interpreted )
+[ 8 of 25] Compiling Web.Job.EmailCustomers ( Web/Job/EmailCustomers.hs, interpreted )
+
+Web/Job/EmailCustomers.hs:10:35: error:
+    * Could not deduce (IHP.Mail.BuildMail Text)
+        arising from a use of `sendMail'
+      from the context: (?modelContext::ModelContext,
+                         ?context::FrameworkConfig)
+        bound by the type signature for:
+                   perform :: (?modelContext::ModelContext,
+                               ?context::FrameworkConfig) =>
+                              EmailCustomersJob -> IO ()
+        at Web/Job/EmailCustomers.hs:5:5-11
+      or from: (?context::context, ConfigProvider context)
+        bound by the inferred type of
+                   sendToCustomer :: (?context::context, ConfigProvider context) =>
+                                     Post' comments -> IO ()
+        at Web/Job/EmailCustomers.hs:10:9-59
+    * In the expression: sendMail (title customer)
+      In an equation for `sendToCustomer':
+          sendToCustomer customer = sendMail (title customer)
+      In an equation for `perform':
+          perform EmailCustomersJob {..}
+            = do putStrLn "Hello Jobs"
+                 customers <- query @Post |> fetch
+                 forEach customers sendToCustomer
+            where
+                sendToCustomer customer = sendMail (title customer)
+   |
+10 |         sendToCustomer customer = sendMail (title customer)
+   |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+[ 9 of 25] Compiling Web.View.Layout  ( Web/View/Layout.hs, interpreted )
+[10 of 25] Compiling Web.View.Prelude ( Web/View/Prelude.hs, interpreted )
+[11 of 25] Compiling Web.View.Posts.Show ( Web/View/Posts/Show.hs, interpreted )
+[12 of 25] Compiling Web.View.Posts.New ( Web/View/Posts/New.hs, interpreted )
+[13 of 25] Compiling Web.View.Posts.Index ( Web/View/Posts/Index.hs, interpreted )
+[14 of 25] Compiling Web.View.Posts.Edit ( Web/View/Posts/Edit.hs, interpreted )
+[15 of 25] Compiling Web.Controller.Posts ( Web/Controller/Posts.hs, interpreted )
+
+Web/Controller/Posts.hs:24:9: warning: [-Wtabs]
+    Tab character found here, and in one further location.
+    Please use spaces instead.
+   |
+24 |                         >>= fetchRelated #comments
+   |         ^^^^^^^^
+[16 of 25] Compiling Web.View.Comments.Show ( Web/View/Comments/Show.hs, interpreted )
+[17 of 25] Compiling Web.View.Comments.New ( Web/View/Comments/New.hs, interpreted )
+[18 of 25] Compiling Web.View.Comments.Index ( Web/View/Comments/Index.hs, interpreted )
+[19 of 25] Compiling Web.View.Comments.Edit ( Web/View/Comments/Edit.hs, interpreted )
+[20 of 25] Compiling Web.Controller.Comments ( Web/Controller/Comments.hs, interpreted )
+[21 of 25] Compiling Web.View.Static.Welcome ( Web/View/Static/Welcome.hs, interpreted )
+[22 of 25] Compiling Web.Controller.Static ( Web/Controller/Static.hs, interpreted )
+[23 of 25] Compiling Web.FrontController ( Web/FrontController.hs, interpreted )
+Failed, 22 modules loaded.
