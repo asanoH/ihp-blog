@@ -8,6 +8,7 @@ import Web.View.Layout (defaultLayout)
 import Web.Controller.Comments
 import Web.Controller.Posts
 import Web.Controller.Static
+import Web.Controller.HelloWorld
 
 instance FrontController WebApplication where
     controllers = 
@@ -15,6 +16,8 @@ instance FrontController WebApplication where
         -- Generator Marker
         , parseRoute @CommentsController
         , parseRoute @PostsController
+        , webSocketApp @HelloWorldController
+        --, webSocketAppWithCustomPath @HelloWorldController "my-ws"
         ]
 
 instance InitControllerContext WebApplication where
