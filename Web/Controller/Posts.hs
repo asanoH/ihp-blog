@@ -9,6 +9,7 @@ import qualified Text.MMark as MMark
 
 instance Controller PostsController where
     action PostsAction = do
+        setSession "email" "a@b"
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch
@@ -19,6 +20,8 @@ instance Controller PostsController where
         render NewView { .. }
 
     action ShowPostAction { postId } = do
+        email <- getSession "email"
+        putStrLn $ "email is " <> tshow email
         post <- fetch postId
             >>= pure . modify #comments (orderByDesc #createdAt)
         		>>= fetchRelated #comments
@@ -40,6 +43,8 @@ instance Controller PostsController where
                     redirectTo EditPostAction { .. }
 
     action CreatePostAction = do
+        email <- getSession "email"
+        putStrLn $ "email is " <> tshow email
         let post = newRecord @Post
         post
             |> buildPost
