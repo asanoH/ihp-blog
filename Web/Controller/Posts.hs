@@ -9,6 +9,9 @@ import qualified Text.MMark as MMark
 
 instance Controller PostsController where
     action PostsAction = do
+        posts <- query @Post |> fetch
+        forEach posts \post -> do
+            putStrLn (get #title post)
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch
