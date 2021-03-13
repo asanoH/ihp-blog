@@ -7,9 +7,17 @@ import Web.View.Posts.Edit
 import Web.View.Posts.Show
 import qualified Text.MMark as MMark
 
+import Data.Text (pack, concat)
+
 instance Controller PostsController where
     action PostsAction = do
         setSession "email" "a@b"
+        -- let flashMessages :: [FlashMessage] = fromFrozenContext
+        -- let f fm = case fm of
+        --         SuccessFlashMessage a -> "flashMessage is " <> a
+        --         ErrorFlashMessage a -> "flashMessage Error is " <> a
+        -- putStrLn $  Data.Text.concat $ map f flashMessages
+        setSuccessMessage "Your Post has begun"
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch

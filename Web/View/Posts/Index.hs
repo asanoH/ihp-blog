@@ -11,6 +11,9 @@ instance View IndexView where
             </ol>
         </nav>
         <h1>Index <a href={pathTo NewPostAction} class="btn btn-primary ml-4">+ New</a></h1>
+        <div class="container mt-4">
+            {renderFlashMessages}
+        </div>
         <div class="table-responsive">
             <table class="table">
                 <thead>
