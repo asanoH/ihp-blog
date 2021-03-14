@@ -8,6 +8,9 @@ import IHP.FrameworkConfig
 import IHP.Job.Types
 import Web.FrontController
 import Web.Types
+import Web.Job.EmailCustomers
+
+import Web.Worker
 
 instance FrontController RootApplication where
     controllers = [
@@ -15,6 +18,7 @@ instance FrontController RootApplication where
         ]
 
 instance Worker RootApplication where
+    --workers _ = workers WebApplication
     workers _ = []
 
 main :: IO ()
