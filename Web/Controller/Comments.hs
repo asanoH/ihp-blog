@@ -54,6 +54,12 @@ instance Controller CommentsController where
         deleteRecord comment
         setSuccessMessage "Comment deleted"
         redirectTo CommentsAction
+    
+    action ShowPostCommentAction { commentId } = do
+        comment <- fetch commentId
+        assignedPost <- fetchOneOrNothing (get #postId comment)
+        putStrLn $ tshow assignedPost
+        render ShowView { .. }
 
 buildComment comment = comment
-    |> fill @["postId","author","body"]
+    |> fill @["postId","author","body", "color"]

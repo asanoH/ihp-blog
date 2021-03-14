@@ -27,4 +27,5 @@ data CommentsController
     | EditCommentAction { commentId :: !(Id Comment) }
     | UpdateCommentAction { commentId :: !(Id Comment) }
     | DeleteCommentAction { commentId :: !(Id Comment) }
+    | ShowPostCommentAction { commentId :: !(Id Comment)}
     deriving (Eq, Show, Data)

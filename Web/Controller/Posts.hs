@@ -8,11 +8,34 @@ import Web.View.Posts.Show
 import qualified Text.MMark as MMark
 
 instance Controller PostsController where
-    action PostsAction = do
-        posts <- query @Post |> fetch
+    action PostsAction = withTransaction do
+        posts <- query @Post 
+            -- |> orderBy #createdAt
+            |> limit 10
+            |> distinctOn #title
+            |> fetch
+        postCounts <- query @Post
+            |> filterWhere (#title, "a")
+            |> fetchCount
+        putStrLn $ "post with title a is " <> (tshow postCounts)
+        newRecord @Post |> create
+        insertedPost <- newRecord @Post 
+            |> set #title "p"
+            |> createRecord
+        let postId2 = get #id insertedPost    
+        post1 <- fetch postId2
+        post1 
+            |> set #title "q"
+            |> updateRecord
+        deleteRecord post1
+        --deleteRecords [post1]
+        posts <- createMany [newRecord @Post] 
         newRecord @EmailCustomersJob |> create
         forEach posts \post -> do
             putStrLn (get #title post)
+        -- let postId1 :: Id Post = "1a4fd022-e203-4069-9fba-81e2205a595e"
+        -- post <- fetch postId1
+        -- putStrLn (get #title post)
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch
