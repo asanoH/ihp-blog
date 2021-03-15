@@ -3,7 +3,8 @@ CREATE TABLE posts (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
     title TEXT NOT NULL,
     body TEXT NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
+    picture_url TEXT DEFAULT NULL
 );
 CREATE TABLE comments (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
@@ -12,7 +13,6 @@ CREATE TABLE comments (
     body TEXT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
 );
-ALTER TABLE comments ADD CONSTRAINT comments_ref_post_id FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE NO ACTION;
 CREATE TABLE email_customers_jobs (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL,
@@ -23,3 +23,4 @@ CREATE TABLE email_customers_jobs (
     locked_at TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     locked_by UUID DEFAULT NULL
 );
+ALTER TABLE comments ADD CONSTRAINT comments_ref_post_id FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE NO ACTION;

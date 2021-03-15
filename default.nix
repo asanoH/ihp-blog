@@ -14,8 +14,10 @@ let
             hlint
             p.ihp
             mmark
+            wreq
         ];
         otherDeps = p: with p; [
+            imagemagick
             # Native dependencies, e.g. imagemagick
         ];
         projectPath = ./.;
