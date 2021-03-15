@@ -16,6 +16,22 @@ instance Controller PostsController where
         posts <- query @Post 
             |> orderByDesc #createdAt
             |> fetch
+        posts1 <- query @Post
+            |> orderBy #createdAt
+            |> offset 1
+            |> limit 10
+            |> filterWhere (#title, "a")
+            |> filterWhereSql (#title, "a")
+            |> queryOr
+                (filterWhere (#title, "a")) (filterWhere (#title, "b"))
+            |> findBy #title "a" 
+        posts2 <- query @Post |> findManyBy #title "a"
+        comments <- query @Comment |> fetch
+        let merged = queryUnion (query @Post) (query @Post)
+        post2 <- query @Post |> fetchOne 
+        let postId2 =  get #id post2
+        post3 <- postId2 |> fetch
+        post4 <- (Just postId2) |> fetchOneOrNothing
         render IndexView { .. }
 
     action NewPostAction = do
