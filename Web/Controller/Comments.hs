@@ -19,6 +19,10 @@ instance Controller CommentsController where
 
     action ShowCommentAction { commentId } = do
         comment <- fetch commentId
+        let postId = get #postId comment
+        commentRel <- (pure comment) >>= fetchRelated #postId
+        let title = commentRel |> get #postId |> get #title
+        putStrLn $ "title is " <> title
         render ShowView { .. }
 
     action EditCommentAction { commentId } = do

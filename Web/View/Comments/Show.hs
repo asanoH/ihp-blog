@@ -12,5 +12,6 @@ instance View ShowView where
             </ol>
         </nav>
         <h1>Show Comment</h1>
+        <h1>Comment to {comment |> get #postId}</h1>
         <p>{comment}</p>
     |]

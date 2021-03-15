@@ -14,6 +14,7 @@ instance View ShowView where
         </nav>
         <h1>{get #title post}</h1>
         <p>{get #createdAt post |> timeAgo}</p>
+        {post |> get #comments}
         <div>{get #body post |> renderMarkdown}</div>
 
         <a href={NewCommentAction (get #id post)}>Add Comment</a>
